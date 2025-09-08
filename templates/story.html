@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Streams - Ujjain Mahakumbh Story</title>
+    <meta name="description" content="Experience the divine journey of Ujjain Mahakumbh through Sacred Streams">
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            color: #fbbf24;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Ensure content doesn't get hidden behind navbar */
+        section {
+            padding-top: 0;
+        }
+
+        a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 600;
+            text-align: left;
+            margin: 0;
+            text-transform: none;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 5rem;
+            right: 2rem;
+            max-width: 50%;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
+            font-weight: 400;
+            text-align: left;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            max-width: 50%;
+            margin: 0;
+            line-height: 1.4;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 0.5rem;
+            backdrop-filter: blur(10px);
+            position: absolute;
+            top: 8.5rem;
+            right: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        h2:hover + .section-description {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        header {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 3%;
+            width: 100%;
+            z-index: 3;
+            height: 3.25em;
+            font-size: clamp(0.5rem, 1.5vw, 0.85rem);
+            letter-spacing: 0.2em;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0));
+        }
+
+        .brand {
+            color: #fff;
+            font-weight: 800;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        section {
+            height: 100%;
+            width: 100%;
+            top: 0;
+            position: fixed;
+            visibility: hidden;
+        }
+
+        .outer,
+        .inner {
+            width: 100%;
+            height: 100%;
+            overflow-y: hidden;
+        }
+
+        .bg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bg h2 {
+            z-index: 999;
+            margin-bottom: 2rem;
+        }
+
+        .bg .section-description {
+            z-index: 999;
+        }
+
+
+        /* Scene specific backgrounds */
+        .first .bg {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("/static/scene1.png");
+        }
+
+        .second .bg {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("/static/scene2.png");
+        }
+
+        .third .bg {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("/static/scene3.png");
+        }
+
+        .fourth .bg {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("/static/scene4.png");
+        }
+
+        .fifth .bg {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("/static/scene5.png");
+        }
+
+        .sixth .bg {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("/static/scene6.png");
+        }
+
+        .seventh .bg {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("/static/scene7.png");
+        }
+
+        .eighth .bg {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("/static/scene8.png");
+        }
+
+        h2 * {
+            will-change: transform;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fbbf24;
+            border: 2px solid #fbbf24;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: #fbbf24;
+            color: #000;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-button">← Back to Home</a>
+    
+    <header>
+        <div class="brand">Sacred Streams</div>
+        <div class="nav-links">
+            <a href="/" style="color:#fff;text-decoration:none;font-weight:700;text-shadow:1px 1px 2px rgba(0,0,0,0.8)">Home</a>
+        </div>
+    </header>
+
+    <section class="first">
+        <div class="outer">
+            <div class="inner">
+                <div class="bg one">
+                    <h2 class="section-heading">The Devas' Curse</h2>
+                    <div class="section-description">
+                        Our story begins in the celestial realms, where the Devas, or gods, once lived in absolute power and glory. But their good fortune was abruptly taken away by a powerful curse from the angry sage Durvasa.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="second">
+        <div class="outer">
+            <div class="inner">
+                <div class="bg">
+                    <h2 class="section-heading">The Quest for Amrita</h2>
+                    <div class="section-description">
+                        Lord Vishnu's advice was simple, yet immense: the only way to regain their power was to drink Amrita, the nectar of immortality hidden at the bottom of the cosmic Ocean of Milk.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="third">
+        <div class="outer">
+            <div class="inner">
+                <div class="bg">
+                    <h2 class="section-heading">The Great Churning</h2>
+                    <div class="section-description">
+                        The Devas and Asuras agreed to churn the cosmic ocean together. They used Mount Mandara as the churning rod and Vasuki, the great serpent king, as the rope.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fourth">
+        <div class="outer">
+            <div class="inner">
+                <div class="bg">
+                    <h2 class="section-heading">Lord Vishnu's Support</h2>
+                    <div class="section-description">
+                        When the mountain started sinking, Lord Vishnu took the form of Kurma, the giant tortoise, and placed the mountain on his back to provide stability.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fifth">
+        <div class="outer">
+            <div class="inner">
+                <div class="bg">
+                    <h2 class="section-heading">The Poison and the Sacrifice</h2>
+                    <div class="section-description">
+                        The first thing to emerge was deadly poison Halahala. Lord Shiva drank it to save creation, turning his throat blue and earning the name Neelakantha.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sixth">
+        <div class="outer">
+            <div class="inner">
+                <div class="bg">
+                    <h2 class="section-heading">The Arrival of Amrita</h2>
+                    <div class="section-description">
+                        The divine physician Dhanvantari emerged holding the sacred Amrita. The truce broke instantly and a fierce battle erupted between Devas and Asuras.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seventh">
+        <div class="outer">
+            <div class="inner">
+                <div class="bg">
+                    <h2 class="section-heading">The Final Trick</h2>
+                    <div class="section-description">
+                        Lord Vishnu transformed into Mohini, whose divine charm mesmerized the Asuras. They handed her the Amrita, which she distributed to the Devas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eighth">
+        <div class="outer">
+            <div class="inner">
+                <div class="bg">
+                    <h2 class="section-heading">The Legacy of the Drops</h2>
+                    <div class="section-description">
+                        As Garuda flew with the Amrita, drops fell at four locations: Haridwar, Prayagraj, Nashik, and Ujjain. The Kumbh Mela is celebrated at these holy sites every twelve years.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        gsap.registerPlugin(Observer);
+
+        let sections = document.querySelectorAll("section"),
+            images = document.querySelectorAll(".bg"),
+            headings = gsap.utils.toArray(".section-heading"),
+            descriptions = gsap.utils.toArray(".section-description"),
+            outerWrappers = gsap.utils.toArray(".outer"),
+            innerWrappers = gsap.utils.toArray(".inner"),
+            currentIndex = -1,
+            wrap = gsap.utils.wrap(0, sections.length),
+            animating;
+
+        gsap.set(outerWrappers, { yPercent: 100 });
+        gsap.set(innerWrappers, { yPercent: -100 });
+
+        function gotoSection(index, direction) {
+            index = wrap(index); // make sure it's valid
+            animating = true;
+            let fromTop = direction === -1,
+                dFactor = fromTop ? -1 : 1,
+                tl = gsap.timeline({
+                    defaults: { duration: 1.25, ease: "power1.inOut" },
+                    onComplete: () => animating = false
+                });
+            
+            if (currentIndex >= 0) {
+                // The first time this function runs, current is -1
+                gsap.set(sections[currentIndex], { zIndex: 0 });
+                tl.to(images[currentIndex], { yPercent: -15 * dFactor })
+                    .set(sections[currentIndex], { autoAlpha: 0 });
+            }
+            
+            gsap.set(sections[index], { autoAlpha: 1, zIndex: 1 });
+            tl.fromTo([outerWrappers[index], innerWrappers[index]], { 
+                yPercent: i => i ? -100 * dFactor : 100 * dFactor
+            }, { 
+                yPercent: 0 
+            }, 0)
+            .fromTo(images[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
+            .fromTo(headings[index], { 
+                autoAlpha: 0, 
+                yPercent: 50 * dFactor
+            }, {
+                autoAlpha: 1,
+                yPercent: 0,
+                duration: 1,
+                ease: "power2"
+            }, 0.2);
+
+            currentIndex = index;
+        }
+
+        Observer.create({
+            type: "wheel,touch,pointer",
+            wheelSpeed: -1,
+            onDown: () => !animating && gotoSection(currentIndex - 1, -1),
+            onUp: () => !animating && gotoSection(currentIndex + 1, 1),
+            tolerance: 10,
+            preventDefault: true
+        });
+
+        gotoSection(0, 1);
+    </script>
+</body>
+</html>

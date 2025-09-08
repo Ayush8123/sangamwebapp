@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.A.N.G.A.M. - Your Spiritual Journey Companion</title>
+    <meta name="description" content="S.A.N.G.A.M. - Your companion for a safe and profound spiritual journey">
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'indigo': {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                            950: '#1e1b4b',
+                        },
+                        'saffron': {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                            950: '#431407',
+                        },
+                        'earth': {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
+                            950: '#0c0a09',
+                        },
+                        'gold': {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                            950: '#451a03',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(2rem)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 0.25rem;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        /* Smooth transitions */
+        * {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Hide sections by default */
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        /* Bottom navigation spacing */
+        .main-content {
+            padding-bottom: 5rem;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gradient-to-br from-indigo-50 via-white to-saffron-50 min-h-screen">
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Login Section -->
+        <section id="login-section" class="section active min-h-screen flex items-center justify-center px-4">
+            <div class="max-w-md w-full space-y-8">
+                <!-- Logo and Title -->
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-indigo-600 to-saffron-600 rounded-full mb-6">
+                        <span class="text-2xl font-bold text-white">S</span>
+                    </div>
+                    <h1 class="text-3xl font-bold text-indigo-900 mb-2">S.A.N.G.A.M.</h1>
+                    <p class="text-indigo-700">Your spiritual journey companion</p>
+                    <div class="mt-4">
+                        <a href="/" class="text-saffron-600 hover:text-saffron-700 font-medium underline">
+                            ← Back to Home
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Login Form -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h2 class="text-2xl font-bold text-indigo-900 mb-6 text-center">Welcome Back</h2>
+                    
+                    <form id="login-form" class="space-y-6">
+                        <div>
+                            <label for="login-user-id" class="block text-sm font-medium text-indigo-700 mb-2">User ID</label>
+                            <input type="text" id="login-user-id" name="user_id" required
+                                   class="w-full px-4 py-3 border border-indigo-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                   placeholder="Enter your User ID">
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-xl transition-colors">
+                            Login
+                        </button>
+                    </form>
+                    
+                    <div class="mt-6 text-center">
+                        <p class="text-indigo-600">Don't have an account?</p>
+                        <button id="show-register" class="text-saffron-600 hover:text-saffron-700 font-medium">
+                            Register here
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Register Form (Hidden by default) -->
+                <div id="register-form" class="bg-white rounded-2xl shadow-xl p-8 hidden">
+                    <h2 class="text-2xl font-bold text-indigo-900 mb-6 text-center">Create Account</h2>
+                    
+                    <form id="register-form-submit" class="space-y-6">
+                        <div>
+                            <label for="register-username" class="block text-sm font-medium text-indigo-700 mb-2">Username</label>
+                            <input type="text" id="register-username" name="username" required
+                                   class="w-full px-4 py-3 border border-indigo-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                   placeholder="Enter your username">
+                        </div>
+                        
+                        <div>
+                            <label for="register-email" class="block text-sm font-medium text-indigo-700 mb-2">Email</label>
+                            <input type="email" id="register-email" name="email" required
+                                   class="w-full px-4 py-3 border border-indigo-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                   placeholder="Enter your email">
+                        </div>
+                        
+                        <div>
+                            <label for="register-mobile" class="block text-sm font-medium text-indigo-700 mb-2">Mobile Number</label>
+                            <input type="tel" id="register-mobile" name="mobile_number" required
+                                   class="w-full px-4 py-3 border border-indigo-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                   placeholder="Enter your mobile number">
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-saffron-600 hover:bg-saffron-700 text-white font-semibold py-3 px-4 rounded-xl transition-colors">
+                            Register
+                        </button>
+                    </form>
+                    
+                    <div class="mt-6 text-center">
+                        <p class="text-indigo-600">Already have an account?</p>
+                        <button id="show-login" class="text-indigo-600 hover:text-indigo-700 font-medium">
+                            Login here
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Family Section -->
+        <section id="family-section" class="section min-h-screen py-8 px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-indigo-900 mb-2">Family Members</h1>
+                    <p class="text-indigo-700">Manage your family connections</p>
+                </div>
+                
+                <!-- Add Family Form -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+                    <h2 class="text-xl font-bold text-indigo-900 mb-4">Add Family Member</h2>
+                    <form id="add-family-form" class="flex gap-4">
+                        <input type="text" id="family-member-id" name="family_member_id" required
+                               class="flex-1 px-4 py-3 border border-indigo-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                               placeholder="Enter family member's User ID">
+                        <button type="submit" 
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors">
+                            Add
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Family Members List -->
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h2 class="text-xl font-bold text-indigo-900 mb-4">Your Family</h2>
+                    <div id="family-members-list" class="space-y-4">
+                        <p class="text-indigo-600 text-center py-8">No family members added yet</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SOS Section -->
+        <section id="sos-section" class="section min-h-screen py-8 px-4">
+            <div class="max-w-2xl mx-auto">
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-indigo-900 mb-2">Emergency SOS</h1>
+                    <p class="text-indigo-700">Trigger emergency alert to notify your family</p>
+                </div>
+                
+                <!-- SOS Form -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                    <form id="sos-form" class="space-y-6">
+                        <div>
+                            <label for="sos-location" class="block text-sm font-medium text-indigo-700 mb-2">Location (Optional)</label>
+                            <input type="text" id="sos-location" name="location"
+                                   class="w-full px-4 py-3 border border-indigo-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                   placeholder="Enter your current location">
+                        </div>
+                        
+                        <div>
+                            <label for="sos-message" class="block text-sm font-medium text-indigo-700 mb-2">Message (Optional)</label>
+                            <textarea id="sos-message" name="message" rows="3"
+                                      class="w-full px-4 py-3 border border-indigo-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                      placeholder="Enter emergency message"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-xl transition-colors text-lg">
+                            🚨 TRIGGER SOS ALERT 🚨
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- SOS History -->
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h2 class="text-xl font-bold text-indigo-900 mb-4">SOS History</h2>
+                    <div id="sos-history-list" class="space-y-4">
+                        <p class="text-indigo-600 text-center py-8">No SOS alerts triggered yet</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-indigo-100 z-50">
+        <div class="max-w-md mx-auto px-4 py-2">
+            <div class="flex justify-around items-center">
+                <!-- Login -->
+                <button id="nav-login" class="nav-item flex flex-col items-center py-3 px-4 rounded-2xl transition-all duration-300 bg-saffron-50 text-saffron-600">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                    </svg>
+                    <span class="text-xs font-medium">Login</span>
+                </button>
+                
+                <!-- Family -->
+                <button id="nav-family" class="nav-item flex flex-col items-center py-3 px-4 rounded-2xl transition-all duration-300 text-indigo-600 hover:bg-indigo-50">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <span class="text-xs font-medium">Family</span>
+                </button>
+                
+                <!-- SOS -->
+                <button id="nav-sos" class="nav-item flex flex-col items-center py-3 px-4 rounded-2xl transition-all duration-300 text-indigo-600 hover:bg-indigo-50">
+                    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                    <span class="text-xs font-medium">SOS</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- JavaScript -->
+    <script>
+        // Global variables
+        let currentUser = null;
+        
+        // DOM elements
+        const sections = {
+            login: document.getElementById('login-section'),
+            family: document.getElementById('family-section'),
+            sos: document.getElementById('sos-section')
+        };
+        
+        const navButtons = {
+            login: document.getElementById('nav-login'),
+            family: document.getElementById('nav-family'),
+            sos: document.getElementById('nav-sos')
+        };
+        
+        // Show/hide register form
+        document.getElementById('show-register').addEventListener('click', () => {
+            document.getElementById('login-form').parentElement.classList.add('hidden');
+            document.getElementById('register-form').classList.remove('hidden');
+        });
+        
+        document.getElementById('show-login').addEventListener('click', () => {
+            document.getElementById('register-form').classList.add('hidden');
+            document.getElementById('login-form').parentElement.classList.remove('hidden');
+        });
+        
+        // Navigation functions
+        function showSection(sectionName) {
+            // Hide all sections
+            Object.values(sections).forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            sections[sectionName].classList.add('active');
+            
+            // Update navigation buttons
+            Object.values(navButtons).forEach(button => {
+                button.classList.remove('bg-saffron-50', 'text-saffron-600');
+                button.classList.add('text-indigo-600', 'hover:bg-indigo-50');
+            });
+            
+            navButtons[sectionName].classList.remove('text-indigo-600', 'hover:bg-indigo-50');
+            navButtons[sectionName].classList.add('bg-saffron-50', 'text-saffron-600');
+        }
+        
+        // Navigation event listeners
+        navButtons.login.addEventListener('click', () => showSection('login'));
+        navButtons.family.addEventListener('click', () => {
+            if (currentUser) {
+                showSection('family');
+                loadFamilyMembers();
+            } else {
+                alert('Please login first');
+                showSection('login');
+            }
+        });
+        navButtons.sos.addEventListener('click', () => {
+            if (currentUser) {
+                showSection('sos');
+                loadSOSHistory();
+            } else {
+                alert('Please login first');
+                showSection('login');
+            }
+        });
+        
+        // API functions
+        async function apiCall(url, method = 'GET', data = null) {
+            const options = {
+                method,
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            };
+            
+            if (data) {
+                options.body = JSON.stringify(data);
+            }
+            
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                return { success: response.ok, data: result, status: response.status };
+            } catch (error) {
+                return { success: false, error: error.message };
+            }
+        }
+        
+        // Login form
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            const result = await apiCall('/api/login', 'POST', data);
+            
+            if (result.success) {
+                currentUser = result.data.data;
+                alert('Login successful!');
+                showSection('family');
+                loadFamilyMembers();
+            } else {
+                alert(`Login failed: ${result.data.error}`);
+            }
+        });
+        
+        // Register form
+        document.getElementById('register-form-submit').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            const result = await apiCall('/api/register', 'POST', data);
+            
+            if (result.success) {
+                alert(`Registration successful! Your User ID is: ${result.data.user_id}`);
+                document.getElementById('show-login').click();
+            } else {
+                alert(`Registration failed: ${result.data.error}`);
+            }
+        });
+        
+        // Add family form
+        document.getElementById('add-family-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            const result = await apiCall(`/api/@${currentUser.user_id}/add_family`, 'POST', data);
+            
+            if (result.success) {
+                alert('Family member added successfully!');
+                loadFamilyMembers();
+                e.target.reset();
+            } else {
+                alert(`Failed to add family member: ${result.data.error}`);
+            }
+        });
+        
+        // SOS form
+        document.getElementById('sos-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!confirm('Are you sure you want to trigger an SOS alert? This will notify all your family members.')) {
+                return;
+            }
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            const result = await apiCall(`/api/@${currentUser.user_id}/sos`, 'POST', data);
+            
+            if (result.success) {
+                alert('SOS alert triggered successfully! Your family members have been notified.');
+                loadSOSHistory();
+                e.target.reset();
+            } else {
+                alert(`SOS alert failed: ${result.data.error}`);
+            }
+        });
+        
+        // Load family members
+        async function loadFamilyMembers() {
+            if (!currentUser) return;
+            
+            const result = await apiCall(`/api/@${currentUser.user_id}/family`);
+            
+            const listElement = document.getElementById('family-members-list');
+            
+            if (result.success && result.data.family_members.length > 0) {
+                listElement.innerHTML = result.data.family_members.map(member => `
+                    <div class="flex items-center justify-between p-4 bg-indigo-50 rounded-xl">
+                        <div>
+                            <h3 class="font-semibold text-indigo-900">${member.username}</h3>
+                            <p class="text-sm text-indigo-600">${member.email}</p>
+                            <p class="text-sm text-indigo-600">${member.mobile_number}</p>
+                        </div>
+                        <div class="text-xs text-indigo-500">${member.user_id}</div>
+                    </div>
+                `).join('');
+            } else {
+                listElement.innerHTML = '<p class="text-indigo-600 text-center py-8">No family members added yet</p>';
+            }
+        }
+        
+        // Load SOS history
+        async function loadSOSHistory() {
+            if (!currentUser) return;
+            
+            const result = await apiCall(`/api/@${currentUser.user_id}/sos/history`);
+            
+            const listElement = document.getElementById('sos-history-list');
+            
+            if (result.success && result.data.alerts.length > 0) {
+                listElement.innerHTML = result.data.alerts.map(alert => `
+                    <div class="p-4 border border-red-200 rounded-xl ${alert.status === 'active' ? 'bg-red-50' : 'bg-gray-50'}">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-semibold ${alert.status === 'active' ? 'text-red-900' : 'text-gray-900'}">
+                                    ${alert.status === 'active' ? '🚨 ACTIVE ALERT' : '✅ Resolved'}
+                                </h3>
+                                <p class="text-sm text-gray-600">${new Date(alert.triggered_at).toLocaleString()}</p>
+                                <p class="text-sm text-gray-600">Location: ${alert.location}</p>
+                                <p class="text-sm text-gray-600">Family notified: ${alert.family_members_notified}</p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded-full ${alert.status === 'active' ? 'bg-red-200 text-red-800' : 'bg-gray-200 text-gray-800'}">
+                                ${alert.status}
+                            </span>
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                listElement.innerHTML = '<p class="text-indigo-600 text-center py-8">No SOS alerts triggered yet</p>';
+            }
+        }
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('login');
+        });
+    </script>
+</body>
+</html>

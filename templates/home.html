@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujjain Mahakumbh - Sacred Streams</title>
+    <meta name="description" content="Experience the divine journey of Ujjain Mahakumbh through Sacred Streams">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Poppins', 'Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                        'crimson': ['Crimson Text', 'serif'],
+                        'cinzel': ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        'saffron': {
+                            50: '#fef9e7',
+                            100: '#fdf2d1',
+                            200: '#fbe5a3',
+                            300: '#f8d675',
+                            400: '#f5c947',
+                            500: '#f2bc19',
+                            600: '#d4a017',
+                            700: '#a67c12',
+                            800: '#78580d',
+                            900: '#4a3408',
+                        },
+                        'indigo': {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                            950: '#1e1b4b',
+                        },
+                        'temple-gold': {
+                            50: '#fffef7',
+                            100: '#fffceb',
+                            200: '#fff8d1',
+                            300: '#fff2a7',
+                            400: '#ffe96d',
+                            500: '#ffdc33',
+                            600: '#e6c52d',
+                            700: '#cc9f00',
+                            800: '#a67c00',
+                            900: '#7a5800',
+                        },
+                        'sacred-red': {
+                            50: '#fef2f2',
+                            100: '#fde6e6',
+                            200: '#fbd5d5',
+                            300: '#f8b4b4',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 1.2s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'bounce-slow': 'bounce 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(3deg)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(251, 191, 36, 0.4)' },
+                            '50%': { boxShadow: '0 0 40px rgba(251, 191, 36, 0.8)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'shimmer-gradient': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #fef9e7, #eef2ff);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f2bc19, #4338ca);
+            border-radius: 0.25rem;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #d4a017, #312e81);
+        }
+        
+        /* Enhanced transitions */
+        * {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Sections */
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        /* Main content spacing */
+        .main-content {
+            padding-bottom: 0;
+        }
+        
+        /* Enhanced hero background */
+        .hero-bg {
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(251,191,36,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(79,70,229,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(239,68,68,0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #4338ca 50%, #7c2d12 75%, #451a03 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.08"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.12"/><circle cx="90" cy="40" r="0.8" fill="%23ffffff" opacity="0.09"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+            color: #fbbf24;
+            font-size: 2rem;
+        }
+        
+        .floating-element:nth-child(1) { top: 10%; left: 10%; animation: float 8s ease-in-out infinite; }
+        .floating-element:nth-child(2) { top: 20%; right: 15%; animation: float 12s ease-in-out infinite reverse; }
+        .floating-element:nth-child(3) { bottom: 30%; left: 20%; animation: float 10s ease-in-out infinite; }
+        .floating-element:nth-child(4) { bottom: 40%; right: 25%; animation: float 14s ease-in-out infinite reverse; }
+        
+        /* Card enhancements */
+        .card {
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(31,41,55,0.2);
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-text-blue {
+            background: linear-gradient(135deg, #6366f1, #4f46e5, #4338ca);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Shimmer effect */
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        
+        /* Enhanced buttons */
+        .btn-glow {
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 50px rgba(251, 191, 36, 0.6);
+            transform: translateY(-2px) scale(1.05);
+        }
+        
+        /* Feature cards with better visual hierarchy */
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .feature-card:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            transform: translateY(-12px) scale(1.03);
+        }
+        
+        /* Module cards */
+        .module-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(251, 191, 36, 0.2);
+        }
+        
+        .module-card:hover {
+            border-color: rgba(251, 191, 36, 0.6);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.15);
+        }
+        
+        /* Enhanced typography */
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+            letter-spacing: 0.02em;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation enhancements */
+        .nav-item.active {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            box-shadow: 0 8px 16px rgba(251, 191, 36, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Decorative elements */
+        .decorative-line {
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+            height: 2px;
+            border-radius: 1px;
+        }
+        
+        /* Loading animation for images */
+        .image-placeholder {
+            background: linear-gradient(45deg, #f1f5f9, #e2e8f0, #f1f5f9);
+            background-size: 400% 400%;
+            animation: shimmer 2s ease-in-out infinite;
+        }
+        
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+                line-height: 1.1;
+            }
+            
+            .card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gradient-to-br from-indigo-50 via-white to-saffron-50 min-h-screen">
+    <!-- Floating decorative elements -->
+    <div class="floating-element">🕉️</div>
+    <div class="floating-element">🏛️</div>
+    <div class="floating-element">🌊</div>
+    <div class="floating-element">🔱</div>
+    
+    <!-- Top Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-xl border-b border-saffron-200/50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-4 group">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-temple-gold-500 to-saffron-600 rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                    <div class="relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-temple-gold-500 to-saffron-600 shadow-lg overflow-hidden">
+                        <img src="/static/assets2/logo.png" alt="S.A.N.G.A.M. Logo" class="w-12 h-12 object-cover p-1">
+                    </div>
+                </div>
+                <div class="leading-tight">
+                    <div class="text-lg font-cinzel font-bold gradient-text tracking-wider">S.A.N.G.A.M.</div>
+                    <div class="text-xs text-indigo-600 font-medium">Your spiritual journey companion</div>
+                </div>
+            </a>
+            <nav class="flex items-center gap-3">
+                <a href="/story" class="text-indigo-700 hover:text-saffron-600 font-medium px-4 py-2 rounded-xl hover:bg-gradient-to-r hover:from-saffron-50 hover:to-indigo-50 transition-all">
+                    <span class="font-cinzel">Sacred Streams</span>
+                </a>
+                <a href="/app" class="text-indigo-700 hover:text-saffron-600 font-medium px-4 py-2 rounded-xl hover:bg-gradient-to-r hover:from-saffron-50 hover:to-indigo-50 transition-all">
+                    <span class="font-cinzel">App</span>
+                </a>
+                <a href="/login" id="login-nav-btn" class="bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold py-3 px-6 rounded-xl transition-all btn-glow">
+                    Login / Signup
+                </a>
+                <div id="user-profile" class="hidden flex items-center gap-3">
+                    <div class="flex items-center gap-2 bg-gradient-to-r from-saffron-100 to-indigo-100 px-4 py-2 rounded-xl">
+                        <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-saffron-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                            <span id="user-initial">U</span>
+                        </div>
+                        <span id="user-name" class="text-indigo-700 font-medium">User</span>
+                    </div>
+                    <button id="logout-btn" class="text-indigo-600 hover:text-red-600 font-medium px-3 py-2 rounded-xl hover:bg-red-50 transition-all">
+                        Logout
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home-section" class="section active min-h-screen flex items-center justify-center px-4 pt-28 hero-bg">
+            <div class="max-w-7xl mx-auto text-center text-white relative z-10">
+                <!-- Logo and Title -->
+                <div class="mb-16 animate-fade-in">
+                    <div class="relative inline-block mb-8">
+                        <div class="absolute inset-0 bg-gradient-to-br from-temple-gold-400 to-saffron-500 rounded-full blur-xl opacity-60 animate-pulse-glow"></div>
+                        <div class="relative inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-temple-gold-400 to-saffron-500 rounded-full shadow-2xl overflow-hidden">
+                            <img src="/static/assets2/logo.png" alt="S.A.N.G.A.M. Logo" class="w-28 h-28 object-cover p-1 animate-float">
+                        </div>
+                    </div>
+                    <h1 class="hero-title text-7xl md:text-9xl font-bold mb-6 gradient-text animate-slide-up">
+                        Ujjain Mahakumbh
+                    </h1>
+                    <div class="decorative-line w-32 mx-auto mb-6"></div>
+                    <h2 class="hero-subtitle text-3xl md:text-5xl font-semibold mb-8 text-temple-gold-200 animate-slide-up">
+                        Sacred Streams
+                    </h2>
+                    <p class="text-xl md:text-2xl text-temple-gold-100 max-w-5xl mx-auto leading-relaxed font-crimson animate-fade-in">
+                        Experience the divine journey of the Kumbh Mela through the sacred city of Ujjain. 
+                        Discover the ancient legends, spiritual significance, and timeless wisdom that flows 
+                        through the holy waters of the Shipra River.
+                    </p>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="space-y-8 animate-slide-up">
+                    <div class="flex items-center justify-center gap-6 flex-wrap">
+                        <button id="explore-story" 
+                                class="bg-gradient-to-r from-temple-gold-500 to-saffron-600 hover:from-temple-gold-600 hover:to-saffron-700 text-white font-bold py-5 px-10 rounded-2xl text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl btn-glow">
+                            <span class="font-cinzel">Begin Sacred Journey</span>
+                        </button>
+                        <a href="/login" id="hero-login-cta"
+                                class="bg-white/20 hover:bg-white/30 border-2 border-white/30 hover:border-white/50 text-white font-semibold py-5 px-10 rounded-2xl text-xl transition-all duration-300 backdrop-blur-sm inline-block">
+                            Sign in to Manage Family & SOS
+                        </a>
+                        <a href="/app" id="hero-app-cta" 
+                                class="bg-white/20 hover:bg-white/30 border-2 border-white/30 hover:border-white/50 text-white font-semibold py-5 px-10 rounded-2xl text-xl transition-all duration-300 backdrop-blur-sm inline-block hidden">
+                            Go to App
+                        </a>
+                    </div>
+                    
+                   
+                    
+                    <!-- Quick Features Grid -->
+                    <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 text-left">
+                        <div class="feature-card rounded-2xl p-6 transition-all duration-300 hover:scale-105">
+                            <div class="text-3xl mb-3">📍</div>
+                            <div class="text-temple-gold-200 text-sm font-semibold">Crowd-aware Navigation</div>
+                        </div>
+                        <div class="feature-card rounded-2xl p-6 transition-all duration-300 hover:scale-105">
+                            <div class="text-3xl mb-3">🛟</div>
+                            <div class="text-temple-gold-200 text-sm font-semibold">Family Finder & SOS</div>
+                        </div>
+                        <div class="feature-card rounded-2xl p-6 transition-all duration-300 hover:scale-105">
+                            <div class="text-3xl mb-3">🎧</div>
+                            <div class="text-temple-gold-200 text-sm font-semibold">Location Audio Stories</div>
+                        </div>
+                        <div class="feature-card rounded-2xl p-6 transition-all duration-300 hover:scale-105">
+                            <div class="text-3xl mb-3">🙏</div>
+                            <div class="text-temple-gold-200 text-sm font-semibold">Seva Quests</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Features Preview -->
+                <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div id="feature-family-card" class="feature-card rounded-3xl p-8 hidden card transition-all duration-500">
+                        <div class="text-5xl mb-6 animate-float">👨‍👩‍👧‍👦</div>
+                        <h3 class="section-title text-2xl font-bold mb-4 gradient-text">Family Safety</h3>
+                        <p class="text-temple-gold-100 font-crimson text-lg leading-relaxed">Stay connected with your loved ones during your spiritual journey</p>
+                    </div>
+                    <div id="feature-sos-card" class="feature-card rounded-3xl p-8 hidden card transition-all duration-500">
+                        <div class="text-5xl mb-6 animate-float">🚨</div>
+                        <h3 class="section-title text-2xl font-bold mb-4 gradient-text">Emergency SOS</h3>
+                        <p class="text-temple-gold-100 font-crimson text-lg leading-relaxed">Quick access to emergency assistance when you need it most</p>
+                    </div>
+                </div>
+
+                <!-- Platform Modules -->
+                <div class="mt-5 space-y-4">
+                    <h2 class="section-title text-4xl font-bold gradient-text mb-12">Platform Modules</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
+                        <div class="module-card rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500">
+                            <div class="text-4xl mb-6">🛡️</div>
+                            <h3 class="section-title text-2xl font-extrabold gradient-text-blue mb-4">Suraksha</h3>
+                            <p class="text-lg font-medium text-indigo-800 mb-4">(Safety & Navigation)</p>
+                            <ul class="space-y-3 text-indigo-700">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-temple-gold-500 mt-1">•</span>
+                                    <span>Crowd-aware navigation to ghats, temples, camps</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-temple-gold-500 mt-1">•</span>
+                                    <span>Family Finder & one-tap SOS</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-temple-gold-500 mt-1">•</span>
+                                    <span>Real-time safety and route alerts</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="module-card rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500">
+                            <div class="text-4xl mb-6">🎧</div>
+                            <h3 class="section-title text-2xl font-extrabold gradient-text-blue mb-4">Sanskṛti</h3>
+                            <p class="text-lg font-medium text-indigo-800 mb-4">(Cultural Immersion)</p>
+                            <ul class="space-y-3 text-indigo-700">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-temple-gold-500 mt-1">•</span>
+                                    <span>Location-aware audio stories at landmarks</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-temple-gold-500 mt-1">•</span>
+                                    <span>Lightweight AR for nearby essentials</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-temple-gold-500 mt-1">•</span>
+                                    <span>Contextual, non-intrusive guidance</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="module-card rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500">
+                            <div class="text-4xl mb-6">🙏</div>
+                            <h3 class="section-title text-2xl font-extrabold gradient-text-blue mb-4">Seva</h3>
+                            <p class="text-lg font-medium text-indigo-800 mb-4">(Purposeful Engagement)</p>
+                            <ul class="space-y-3 text-indigo-700">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-temple-gold-500 mt-1">•</span>
+                                    <span>Dharma Trails to lesser-crowded sacred sites</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-temple-gold-500 mt-1">•</span>
+                                    <span>Seva Quests like clean-up or jal seva</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-temple-gold-500 mt-1">•</span>
+                                    <span>Earn digital punya and community badges</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why S.A.N.G.A.M. -->
+                <div class="mt-20 space-y-4">
+                    <h2 class="section-title text-4xl font-bold gradient-text mb-12">Why Choose S.A.N.G.A.M.?</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
+                        <div class="module-card rounded-3xl p-8 shadow-lg">
+                            <div class="text-3xl mb-4">👥</div>
+                            <h3 class="section-title text-2xl font-extrabold gradient-text-blue mb-3">Pilgrim-Centric</h3>
+                            <p class="text-indigo-800 font-crimson leading-relaxed">From crowd control to crowd care — personal safety, guidance, and comfort for every pilgrim.</p>
+                        </div>
+                        <div class="module-card rounded-3xl p-8 shadow-lg">
+                            <div class="text-3xl mb-4">📱</div>
+                            <h3 class="section-title text-2xl font-extrabold gradient-text-blue mb-3">Phygital Design</h3>
+                            <p class="text-indigo-800 font-crimson leading-relaxed">Enhances the real-world experience with subtle, optional digital help — never intrusive.</p>
+                        </div>
+                        <div class="module-card rounded-3xl p-8 shadow-lg">
+                            <div class="text-3xl mb-4">🏛️</div>
+                            <h3 class="section-title text-2xl font-extrabold gradient-text-blue mb-3">Culturally Attuned</h3>
+                            <p class="text-indigo-800 font-crimson leading-relaxed">Spiritual rewards like digital punya and badges encourage seva and exploration.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Access & Inclusivity -->
+                <div class="mt-20 space-y-4">
+                    <h2 class="section-title text-4xl font-bold gradient-text mb-12">Inclusive & Scalable</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                        <div class="module-card rounded-3xl p-8 shadow-lg">
+                            <div class="text-3xl mb-4">♿</div>
+                            <h3 class="section-title text-xl font-extrabold gradient-text-blue mb-4">Inclusive by Design</h3>
+                            <ul class="space-y-2 text-indigo-700">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-temple-gold-500">•</span>
+                                    <span class="text-sm">Simple, icon-first UI with voice commands</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-temple-gold-500">•</span>
+                                    <span class="text-sm">Multilingual support (Hindi, English, more)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-temple-gold-500">•</span>
+                                    <span class="text-sm">Offline-first maps and emergency info</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="module-card rounded-3xl p-8 shadow-lg">
+                            <div class="text-3xl mb-4">📞</div>
+                            <h3 class="section-title text-xl font-extrabold gradient-text-blue mb-4">Beyond Smartphones</h3>
+                            <ul class="space-y-2 text-indigo-700">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-temple-gold-500">•</span>
+                                    <span class="text-sm">IVR helpline for critical alerts & guidance</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-temple-gold-500">•</span>
+                                    <span class="text-sm">Web portal for pre-event planning</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-temple-gold-500">•</span>
+                                    <span class="text-sm">Lightweight mobile app for on-ground use</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="module-card rounded-3xl p-8 shadow-lg">
+                            <div class="text-3xl mb-4">⚡</div>
+                            <h3 class="section-title text-xl font-extrabold gradient-text-blue mb-4">Scalable & Adaptable</h3>
+                            <ul class="space-y-2 text-indigo-700">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-temple-gold-500">•</span>
+                                    <span class="text-sm">Cloud-native, serverless architecture</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-temple-gold-500">•</span>
+                                    <span class="text-sm">Modular, event-agnostic content model</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-temple-gold-500">•</span>
+                                    <span class="text-sm">Deployable for future Melas and festivals</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sacred Places Gallery -->
+                <div class="mt-32 space-y-4 pb-2">
+                    <h2 class="section-title text-4xl font-bold gradient-text mb-12">Sacred Places of Ujjain</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="module-card rounded-3xl p-6 shadow-lg overflow-hidden">
+                            <img src="/static/assets2/mahakaleshwar temple.png" alt="Mahakaleshwar Temple" class="w-full h-48 object-cover rounded-2xl mb-4">
+                            <h3 class="section-title text-xl font-extrabold gradient-text-blue mb-2">Mahakaleshwar Temple</h3>
+                            <p class="text-indigo-700 text-sm">One of the 12 Jyotirlingas, the most sacred Shiva temple</p>
+                        </div>
+                        <div class="module-card rounded-3xl p-6 shadow-lg overflow-hidden">
+                            <img src="/static/assets2/ram ghat.png" alt="Ram Ghat" class="w-full h-48 object-cover rounded-2xl mb-4">
+                            <h3 class="section-title text-xl font-extrabold gradient-text-blue mb-2">Ram Ghat</h3>
+                            <p class="text-indigo-700 text-sm">Sacred bathing ghat on the Shipra River</p>
+                        </div>
+                        <div class="module-card rounded-3xl p-6 shadow-lg overflow-hidden">
+                            <img src="/static/assets2/harsiddhi temple.png" alt="Harsiddhi Temple" class="w-full h-48 object-cover rounded-2xl mb-4">
+                            <h3 class="section-title text-xl font-extrabold gradient-text-blue mb-2">Harsiddhi Temple</h3>
+                            <p class="text-indigo-700 text-sm">Ancient temple dedicated to Goddess Annapurna</p>
+                        </div>
+                        <div class="module-card rounded-3xl p-6 shadow-lg overflow-hidden">
+                            <img src="/static/assets2/kal bhairav temple.png" alt="Kal Bhairav Temple" class="w-full h-48 object-cover rounded-2xl mb-4">
+                            <h3 class="section-title text-xl font-extrabold gradient-text-blue mb-2">Kal Bhairav Temple</h3>
+                            <p class="text-indigo-700 text-sm">Temple of the fierce form of Lord Shiva</p>
+                        </div>
+                        <div class="module-card rounded-3xl p-6 shadow-lg overflow-hidden">
+                            <img src="/static/assets2/sandipani ashram.png" alt="Sandipani Ashram" class="w-full h-48 object-cover rounded-2xl mb-4">
+                            <h3 class="section-title text-xl font-extrabold gradient-text-blue mb-2">Sandipani Ashram</h3>
+                            <p class="text-indigo-700 text-sm">Ancient ashram where Lord Krishna studied</p>
+                        </div>
+                        <div class="module-card rounded-3xl p-6 shadow-lg overflow-hidden">
+                            <img src="/static/assets2/shipra river.png" alt="Shipra River" class="w-full h-48 object-cover rounded-2xl mb-4">
+                            <h3 class="section-title text-xl font-extrabold gradient-text-blue mb-2">Shipra River</h3>
+                            <p class="text-indigo-700 text-sm">The holy river that flows through Ujjain</p>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gradient-to-r from-indigo-50 to-saffron-50 border-t border-temple-gold-200 mt-32">
+            <div class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-4 gap-10 text-indigo-800">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-temple-gold-500 to-saffron-600 rounded-full">
+                            <span class="text-white font-bold">S</span>
+                        </div>
+                        <div class="section-title text-2xl font-extrabold gradient-text">S.A.N.G.A.M.</div>
+                    </div>
+                    <p class="font-crimson text-lg leading-relaxed">Your spiritual journey companion for Ujjain Mahakumbh.</p>
+                    <div class="flex gap-4">
+                        <a href="https://facebook.com" target="_blank" rel="noopener" class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-sm cursor-pointer hover:scale-110 transition-transform" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                <path d="M22 12.06C22 6.477 17.523 2 11.94 2 6.357 2 1.88 6.477 1.88 12.06c0 4.994 3.657 9.135 8.438 9.94v-7.03H7.9v-2.91h2.418V9.845c0-2.39 1.426-3.708 3.61-3.708 1.046 0 2.14.187 2.14.187v2.35h-1.206c-1.19 0-1.56.738-1.56 1.495v1.795h2.655l-.424 2.91h-2.231V22c4.78-.805 8.438-4.946 8.438-9.94Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-sm cursor-pointer hover:scale-110 transition-transform" aria-label="X">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                <path d="M3 3h3.9l5.14 7.12L17.7 3H21l-7.5 9.77L21.5 21H17.6l-5.43-7.51L6.3 21H3l7.92-10.29L3 3Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-sm cursor-pointer hover:scale-110 transition-transform" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 15.8 2.8 2.8 0 0 0 12 9.2Zm5.25-2.45a.85.85 0 1 1 0 1.7.85.85 0 0 1 0-1.7Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="font-bold mb-4 text-lg gradient-text-blue">Explore</div>
+                    <ul class="space-y-3 text-indigo-700">
+                        <li><a href="/story" class="hover:text-saffron-600 transition-colors font-medium">Sacred Streams</a></li>
+                        <li><a href="#" class="hover:text-saffron-600 transition-colors font-medium">Virtual Darshan</a></li>
+                        <li><a href="#" class="hover:text-saffron-600 transition-colors font-medium">Ghat Guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="font-bold mb-4 text-lg gradient-text-blue">Features</div>
+                    <ul class="space-y-1 text-sm">
+                        <li>Family Connect</li>
+                        <li>Emergency SOS</li>
+                        <li class="font-medium">Seva Quests <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Coming Soon</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="font-bold mb-4 text-lg gradient-text-blue">Contact</div>
+                    <ul class="space-y-3 text-indigo-700">
+                        <li class="font-medium">📧 support@sangam.app</li>
+                        <li class="font-medium">📞 +91-XXX-XXX-XXXX</li>
+                        <li class="font-medium">🏛️ Ujjain, Madhya Pradesh</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-temple-gold-200 text-center text-sm text-indigo-600 py-6 bg-white/50">
+                <p class="font-medium">© 2025 S.A.N.G.A.M. All rights reserved. | Built with devotion for pilgrims 🙏</p>
+            </div>
+        </footer>
+        
+        <!-- Auth Modal (enhanced design) -->
+        
+    </main>
+    
+    
+    <!-- JavaScript (enhanced with better UX) -->
+    <script>
+        // Global variables
+        let currentUser = null;
+        
+        // DOM elements
+        const sections = {
+            home: document.getElementById('home-section'),
+            family: document.getElementById('family-section'),
+            sos: document.getElementById('sos-section')
+        };
+        
+        const navButtons = {
+            story: document.getElementById('nav-story')
+        };
+
+        const featureFamilyCard = document.getElementById('feature-family-card');
+        const featureSosCard = document.getElementById('feature-sos-card');
+        
+        // Navigation functions with enhanced animations
+        function showSection(sectionName) {
+            // Hide all sections
+            Object.values(sections).forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section with animation
+            sections[sectionName].classList.add('active');
+        }
+        
+        // Navigation event listeners
+        if (navButtons.story) {
+            navButtons.story.addEventListener('click', () => {
+                window.location.href = '/story';
+            });
+        }
+        
+        // Explore story button
+        document.getElementById('explore-story').addEventListener('click', () => {
+            window.location.href = '/story';
+        });
+        
+        // API functions with better error handling
+        async function apiCall(url, method = 'GET', data = null) {
+            const options = {
+                method,
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            };
+            
+            if (data) {
+                options.body = JSON.stringify(data);
+            }
+            
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('API call failed:', error);
+                throw error;
+            }
+        }
+        
+        // Login function
+        async function login(userId) {
+            try {
+                // For demo purposes, simulate successful login
+                if (userId && userId.trim() !== '') {
+                    currentUser = {
+                        user_id: userId,
+                        username: userId,
+                        email: 'user@example.com'
+                    };
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    authModal.classList.add('hidden');
+                    showAuthenticatedUI();
+                    showNotification('Login successful!', 'success');
+                } else {
+                    showNotification('Please enter a valid User ID', 'error');
+                }
+            } catch (error) {
+                showNotification('Login failed. Please try again.', 'error');
+            }
+        }
+        
+        // Register function
+        async function register(userData) {
+            try {
+                // For demo purposes, simulate successful registration
+                if (userData.username && userData.email && userData.mobile_number) {
+                    currentUser = {
+                        user_id: userData.username,
+                        username: userData.username,
+                        email: userData.email,
+                        mobile_number: userData.mobile_number
+                    };
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    authModal.classList.add('hidden');
+                    showAuthenticatedUI();
+                    showNotification('Registration successful!', 'success');
+                } else {
+                    showNotification('Please fill in all required fields', 'error');
+                }
+            } catch (error) {
+                showNotification('Registration failed. Please try again.', 'error');
+            }
+        }
+        
+        // Show authenticated UI
+        function showAuthenticatedUI() {
+            // Show family and SOS cards
+            featureFamilyCard.classList.remove('hidden');
+            featureSosCard.classList.remove('hidden');
+            
+            // Show user profile and hide login button
+            const loginBtn = document.getElementById('login-nav-btn');
+            const userProfile = document.getElementById('user-profile');
+            const userName = document.getElementById('user-name');
+            const userInitial = document.getElementById('user-initial');
+            const heroLoginCta = document.getElementById('hero-login-cta');
+            const heroAppCta = document.getElementById('hero-app-cta');
+            
+            if (currentUser) {
+                // Hide login button
+                if (loginBtn) loginBtn.classList.add('hidden');
+                
+                // Show user profile
+                if (userProfile) {
+                    userProfile.classList.remove('hidden');
+                    if (userName) userName.textContent = currentUser.username || 'User';
+                    if (userInitial) userInitial.textContent = (currentUser.username || 'U').charAt(0).toUpperCase();
+                }
+                
+                // Update hero section buttons
+                if (heroLoginCta) heroLoginCta.classList.add('hidden');
+                if (heroAppCta) heroAppCta.classList.remove('hidden');
+            }
+        }
+        
+        // Logout function
+        function logout() {
+            localStorage.removeItem('currentUser');
+            currentUser = null;
+            
+            // Hide user profile and show login button
+            const loginBtn = document.getElementById('login-nav-btn');
+            const userProfile = document.getElementById('user-profile');
+            const heroLoginCta = document.getElementById('hero-login-cta');
+            const heroAppCta = document.getElementById('hero-app-cta');
+            
+            if (loginBtn) loginBtn.classList.remove('hidden');
+            if (userProfile) userProfile.classList.add('hidden');
+            
+            // Update hero section buttons
+            if (heroLoginCta) heroLoginCta.classList.remove('hidden');
+            if (heroAppCta) heroAppCta.classList.add('hidden');
+            
+            // Hide family and SOS cards
+            featureFamilyCard.classList.add('hidden');
+            featureSosCard.classList.add('hidden');
+            
+            showNotification('Logged out successfully!', 'success');
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-20 right-4 z-50 px-6 py-4 rounded-xl shadow-lg transition-all duration-300 ${
+                type === 'success' ? 'bg-green-500 text-white' : 
+                type === 'error' ? 'bg-red-500 text-white' : 
+                'bg-blue-500 text-white'
+            }`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Load family members
+        async function loadFamilyMembers() {
+            try {
+                const response = await apiCall('/api/family/members');
+                const container = document.getElementById('family-members-list');
+                
+                if (response.members && response.members.length > 0) {
+                    container.innerHTML = response.members.map(member => `
+                        <div class="bg-gradient-to-r from-indigo-50 to-saffron-50 rounded-2xl p-6 border border-indigo-200">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-saffron-500 rounded-full flex items-center justify-center text-white font-bold">
+                                        ${member.username.charAt(0).toUpperCase()}
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-indigo-800">${member.username}</h3>
+                                        <p class="text-indigo-600 text-sm">ID: ${member.user_id}</p>
+                                    </div>
+                                </div>
+                                <button onclick="removeFamilyMember('${member.user_id}')" class="text-red-500 hover:text-red-700 p-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    container.innerHTML = `
+                        <div class="text-center py-12">
+                            <div class="text-6xl mb-4 opacity-50">👨‍👩‍👧‍👦</div>
+                            <p class="text-indigo-600 font-crimson text-lg">No family members added yet</p>
+                            <p class="text-indigo-500 text-sm mt-2">Add family members to keep everyone connected during the Mela</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Failed to load family members:', error);
+            }
+        }
+        
+        // Add family member
+        async function addFamilyMember(memberId) {
+            try {
+                const response = await apiCall('/api/family/add', 'POST', { family_member_id: memberId });
+                if (response.success) {
+                    showNotification('Family member added successfully!', 'success');
+                loadFamilyMembers();
+                    document.getElementById('family-member-id').value = '';
+            } else {
+                    showNotification(response.message || 'Failed to add family member', 'error');
+                }
+            } catch (error) {
+                showNotification('Failed to add family member. Please try again.', 'error');
+            }
+        }
+        
+        // Remove family member
+        async function removeFamilyMember(memberId) {
+            try {
+                const response = await apiCall('/api/family/remove', 'POST', { family_member_id: memberId });
+                if (response.success) {
+                    showNotification('Family member removed successfully!', 'success');
+                    loadFamilyMembers();
+                } else {
+                    showNotification(response.message || 'Failed to remove family member', 'error');
+                }
+            } catch (error) {
+                showNotification('Failed to remove family member. Please try again.', 'error');
+            }
+        }
+        
+        // Load SOS history
+        async function loadSOSHistory() {
+            try {
+                const response = await apiCall('/api/sos/history');
+                const container = document.getElementById('sos-history-list');
+                
+                if (response.alerts && response.alerts.length > 0) {
+                    container.innerHTML = response.alerts.map(alert => `
+                        <div class="bg-gradient-to-r from-red-50 to-saffron-50 rounded-2xl p-6 border border-red-200">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="text-2xl">🚨</span>
+                                        <h3 class="font-bold text-red-800">Emergency Alert</h3>
+                                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">${alert.status}</span>
+                                    </div>
+                                    <p class="text-red-700 text-sm mb-2">${new Date(alert.timestamp).toLocaleString()}</p>
+                                    ${alert.location ? `<p class="text-red-600 text-sm">📍 ${alert.location}</p>` : ''}
+                                    ${alert.message ? `<p class="text-red-600 text-sm mt-2">${alert.message}</p>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    container.innerHTML = `
+                        <div class="text-center py-12">
+                            <div class="text-6xl mb-4 opacity-50">📋</div>
+                            <p class="text-indigo-600 font-crimson text-lg">No SOS alerts triggered yet</p>
+                            <p class="text-indigo-500 text-sm mt-2">Emergency alerts will appear here when triggered</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Failed to load SOS history:', error);
+            }
+        }
+        
+        // Send SOS alert
+        async function sendSOSAlert(location, message) {
+            try {
+                const response = await apiCall('/api/sos/send', 'POST', { location, message });
+                if (response.success) {
+                    showNotification('SOS alert sent successfully!', 'success');
+                loadSOSHistory();
+            } else {
+                    showNotification(response.message || 'Failed to send SOS alert', 'error');
+                }
+            } catch (error) {
+                showNotification('Failed to send SOS alert. Please try again.', 'error');
+            }
+        }
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if user is already logged in
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                showAuthenticatedUI();
+            }
+            
+            // Add logout button event listener
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', logout);
+            }
+        });
+        
+        document.getElementById('add-family-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const memberId = document.getElementById('family-member-id').value;
+            if (memberId) {
+                addFamilyMember(memberId);
+            }
+        });
+        
+        document.getElementById('sos-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const location = document.getElementById('sos-location').value;
+            const message = document.getElementById('sos-message').value;
+            sendSOSAlert(location, message);
+        });
+        
+    </script>
+</body>
+</html>
